@@ -65,6 +65,12 @@ export default function Header() {
                 <span class="ml-1 font-extrabold text-slate-7 dark:text-slate">
                   Shell
                 </span>
+              </>
+            }
+          >
+            <span class="ml-1 font-extrabold text-slate-7 dark:text-slate">
+              {iconTitle().title}
+            </span>
           </Show>
         </div>
         <ThemeToggle />
