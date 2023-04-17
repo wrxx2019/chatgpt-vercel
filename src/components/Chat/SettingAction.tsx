@@ -76,7 +76,7 @@ export default function SettingAction() {
                 }}
               />
             </SettingItem>
-            <SettingItem icon="i-carbon:api" label="OpenAI Key">
+            <SettingItem icon="i-carbon:api" label="请填写你自己OpenAI账户的API Key使用">
               <input
                 type="password"
                 value={store.globalSettings.APIKey}
@@ -110,7 +110,7 @@ export default function SettingAction() {
             <Show when={store.sessionId !== "index"}>
               <SettingItem
                 icon="i-carbon:text-annotation-toggle"
-                label="对话标题"
+                label="对话标题(支持emoji)"
               >
                 <input
                   type="text"
@@ -128,7 +128,7 @@ export default function SettingAction() {
             </Show>
             <SettingItem
               icon="i-carbon:machine-learning-model"
-              label="OpenAI 模型"
+              label="请选择你需要的OpenAI模型"
             >
               <Selector
                 class="max-w-150px"
@@ -156,7 +156,7 @@ export default function SettingAction() {
                 ]}
               />
             </SettingItem>
-            <SettingItem icon="i-carbon:data-enrichment" label="思维发散程度">
+            <SettingItem icon="i-carbon:data-enrichment" label="思维发散程度(越右越胡言乱语)">
               <div class="flex items-center justify-between w-150px">
                 <input
                   type="range"
@@ -177,7 +177,7 @@ export default function SettingAction() {
                 </span>
               </div>
             </SettingItem>
-            <SettingItem icon="i-carbon:save-image" label="记录对话内容">
+            <SettingItem icon="i-carbon:save-image" label="记录对话内容，刷新不会消失">
               <SwitchButton
                 checked={store.sessionSettings.saveSession}
                 onChange={e => {
@@ -191,7 +191,7 @@ export default function SettingAction() {
             </SettingItem>
             <SettingItem
               icon="i-carbon:3d-curve-auto-colon"
-              label="开启连续对话"
+              label="开启连续对话，将加倍消耗 Token(一般不建议开启)"
             >
               <SwitchButton
                 checked={store.sessionSettings.continuousDialogue}
@@ -249,10 +249,10 @@ export default function SettingAction() {
                   setTimeout(() => setActionState("genImg", "normal"), 1000)
                 }}
                 icon={imgIcons[actionState.genImg]}
-                label="导出图片"
+                label="生成对话截屏，电脑上复制，手机上下载"
               />
               <ActionItem
-                label="导出MD"
+                label="导出对话文字到剪贴板"
                 onClick={async () => {
                   await exportMD(store.messageList)
                   setActionState("success", "markdown")
@@ -338,7 +338,7 @@ export default function SettingAction() {
                       ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
                       : "i-carbon:link"
                   }
-                  label="复制链接"
+                  label="复制对话网址链接"
                 />
                 <ActionItem
                   onClick={() => {
