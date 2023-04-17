@@ -249,7 +249,7 @@ export default function SettingAction() {
                   setTimeout(() => setActionState("genImg", "normal"), 1000)
                 }}
                 icon={imgIcons[actionState.genImg]}
-                label="生成对话截屏，电脑上复制，手机上下载"
+                label="生成对话截屏"
               />
               <ActionItem
                 label="导出对话文字到剪贴板"
